@@ -1,0 +1,59 @@
+.page-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.movie-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.movie-box {
+  width: 300px;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.movie-box:hover {
+  transform: translateY(-5px);
+}
+
+.movie-image {
+  text-align: center;
+}
+
+.movie-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+.movie-details {
+  margin-top: 10px;
+}
+
+.movie-title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.movie-director {
+  font-size: 14px;
+}
+
+.movie-genre {
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 3px;
+}
+
+.movie-release-year {
+  font-size: 14px;
+  color: #888;
+}

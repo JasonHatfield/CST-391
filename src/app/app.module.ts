@@ -1,26 +1,27 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
-import { AppRoutingModule } from './app-routing.module';
+import { FormsModule } from '@angular/forms';
+import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { MovieListComponent } from './movie-list/movie-list.component';
 import { AddMovieComponent } from './add-movie/add-movie.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
+import { MovieListComponent } from './movie-list/movie-list.component';
+import { MovieService } from '../services/movie.service';
+
+const routes: Routes = [
+  { path: '', component: MovieListComponent },
+  { path: 'movie/:id', component: MovieDetailsComponent },
+];
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    MovieListComponent,
     AddMovieComponent,
-    MovieDetailsComponent
+    MovieDetailsComponent,
+    MovieListComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+  imports: [BrowserModule, FormsModule, RouterModule.forRoot(routes)],
+  providers: [MovieService],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
