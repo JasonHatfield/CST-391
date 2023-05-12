@@ -1,11 +1,12 @@
 <div class="container">
-  <h1>Welcome to {{ title }}</h1>
-
-  <nav class="navbar navbar-light navbar-expand-md navigation-clean-button">
+  <div class="header">
+    <h1>Welcome to {{ title }}</h1>
+  </div>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="d-flex justify-content-center" id="navbarNav">
       <div style="margin: 0 auto">
         <div class="navbar-nav">
-          <a class="submit-button text-center" href="#">My Music</a>
+          <a class="submit-button text-center" routerLink="/">My Music</a>
           <a
             class="submit-button text-center"
             href="https://www.gcu.edu"
@@ -25,6 +26,7 @@
       </div>
     </div>
   </nav>
-
-  <router-outlet></router-outlet>
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
 </div>

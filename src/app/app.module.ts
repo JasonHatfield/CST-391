@@ -1,30 +1,29 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ListArtistsComponent } from './list-artists/list-artists.component';
-import { ListAlbumsComponent } from './list-albums/list-albums.component';
+import { AppRoutingModule } from './app-routing.module';
 import { CreateAlbumComponent } from './create-album/create-album.component';
-import { DisplayAlbumComponent } from './display-album/display-album.component';
-import { EditAlbumComponent } from './edit-album/edit-album.component';
 import { DeleteAlbumComponent } from './delete-album/delete-album.component';
+import { DisplayAlbumComponent } from './display-album/display-album.component';
+
+import { EditAlbumComponent } from './edit-album/edit-album.component';
+import { ListAlbumsComponent } from './list-albums/list-albums.component';
+import { ListArtistsComponent } from './list-artists/list-artists.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ListArtistsComponent,
-    ListAlbumsComponent,
     CreateAlbumComponent,
+    DeleteAlbumComponent,
     DisplayAlbumComponent,
     EditAlbumComponent,
-    DeleteAlbumComponent
+    ListAlbumsComponent,
+    ListArtistsComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [AppRoutingModule, BrowserModule, FormsModule, ReactiveFormsModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
