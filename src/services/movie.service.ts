@@ -37,6 +37,10 @@ export class MovieService {
     this.movies.push(movie);
   }
 
+  deleteMovie(id: number): void {
+    this.movies = this.movies.filter((movie) => movie.id !== id);
+  }
+
   getMovies(): Movie[] {
     return this.movies;
   }

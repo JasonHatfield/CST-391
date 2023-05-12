@@ -9,6 +9,7 @@ import { MovieService } from '../../services/movie.service';
 })
 export class AddMovieComponent {
   newMovie: Movie = new Movie();
+  isFormValid: boolean = false;
 
   constructor(private movieService: MovieService) {}
 
@@ -17,6 +18,7 @@ export class AddMovieComponent {
     this.newMovie.id = newMovieId;
     this.movieService.addMovie(this.newMovie);
     this.newMovie = new Movie();
+    this.isFormValid = false;
   }
 
   private generateUniqueId(): number {
@@ -24,5 +26,15 @@ export class AddMovieComponent {
       ...this.movieService.getMovies().map((movie) => movie.id)
     );
     return highestId + 1;
+  }
+
+  validateForm() {
+    this.isFormValid =
+      !!this.newMovie.title &&
+      !!this.newMovie.director &&
+      !!this.newMovie.releaseYear &&
+      !!this.newMovie.description &&
+      !!this.newMovie.posterUrl &&
+      !!this.newMovie.genre;
   }
 }
