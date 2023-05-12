@@ -1,22 +1,19 @@
 <div class="list-group" *ngIf="selectedAlbum == null">
-  <button
-    class="list-group-item"
-    active
-    *ngFor="let album of albums"
-    (click)="onSelectAlbum(album)"
-  >
-    <table align="center" width="500px">
-      <tr>
-        <td width="20%">
-          <img src="{{ album.Image }}" width="50px" height="50px" />
-        </td>
-        <td align="left">{{ album.Title }} from {{ album.Year }}</td>
-      </tr>
-    </table>
-  </button>
+  <h2 class="page-title">{{ Albums }}</h2>
+  <div class="album-row">
+    <div class="list-group-item" *ngFor="let album of albums" (click)="onSelectAlbum(album)">
+      <div class="album-container">
+        <div class="album-image">
+          <img src="{{ album.Image }}" alt="{{ album.Title }}" />
+        </div>
+        <div class="album-details">
+          <h4 class="album-title">{{ album.Title }}</h4>
+          <p class="album-band">{{ album.Artist }}</p>
+          <p class="album-year">{{ album.Year }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
-<app-display-album
-  *ngIf="selectedAlbum"
-  [album]="selectedAlbum"
-></app-display-album>
+<app-display-album *ngIf="selectedAlbum" [album]="selectedAlbum"></app-display-album>

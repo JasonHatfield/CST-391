@@ -1,74 +1,29 @@
-<div align="center">
-  <div class="card mb-6" style="max-width: 500px">
-    <div class="row no-gutters">
-      <div class="col-md-4">
-        <div
-          style="
-            height: 200px;
-            width: 150px;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding-left: 10px;
-          "
-        >
-          <img
-            src="{{ album.Image }}"
-            class="card-img"
-            alt="{{ album.Title }}"
-            width="150px"
-            height="150px"
-          />
-        </div>
-      </div>
-      <div class="col-md-8">
-        <div class="card-body">
-          <h5 class="card-title">{{ album.Title }}</h5>
-          <p class="card-text">{{ album.Description }}</p>
-          <p class="card-text">
-            <small class="text-muted">{{ album.Year }}</small>
-          </p>
-          <table>
-            <tr>
-              <td width="50px" align="center">
-                <a
-                  href="#"
-                  data-toggle="collapse"
-                  data-target="#collapseTracks"
-                  aria-expanded="false"
-                  aria-controls="collapseTracks"
-                  ><i class="fa fa-list"></i
-                ></a>
-              </td>
-              <td width="50px" align="center">
-                <a [routerLink]="['/edit', album.Artist, album.Id]"
-                  ><i class="fa fa-edit"></i
-                ></a>
-              </td>
-              <td width="50px" align="center">
-                <a [routerLink]="['/delete', album.Artist, album.Id]"
-                  ><i class="fa fa-trash"></i
-                ></a>
-              </td>
-            </tr>
-          </table>
-        </div>
+<div class="album-details" *ngIf="album">
+  <h2 class="album-title">{{ album.Title }}</h2>
+  <h4 class="album-artist">by {{ album.Artist }}</h4>
+  <div class="album-container">
+    <div class="album-image">
+      <img src="{{ album.Image }}" alt="{{ album.Title }}" />
+    </div>
+    <div class="album-info">
+      <p class="album-year">Released: {{ album.Year }}</p>
+      <div class="track-list">
+        <h5 class="track-title">Track List:</h5>
+        <ol class="track-items">
+          <li
+            class="track-item"
+            *ngFor="let track of album.Tracks; let i = index"
+          >
+            <div class="track-number">{{ i + 1 }}</div>
+            <div class="track-details">
+              <span class="track-title">{{ track.Title }}</span>
+            </div>
+          </li>
+        </ol>
       </div>
     </div>
-  </div>
-</div>
-
-<div
-  class="collapse"
-  id="collapseTracks"
-  style="margin-left: 50px; margin-right: 50px"
->
-  <div class="card card-body">
-    <ul class="list-group-flush">
-      <li class="list-group-item" *ngFor="let track of album.Tracks">
-        {{ track.Number }}. {{ track.Title }}
-      </li>
-    </ul>
+    <div style="text-align: center; margin-top: 20px">
+      <button class="submit-button" (click)="goToEdit()">Edit</button>
+    </div>
   </div>
 </div>

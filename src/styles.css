@@ -4,7 +4,7 @@ body {
   font-size: 16px;
   margin: 0;
   padding: 0;
-  background-color: #f1f1f1;
+  background-color: #a3a4c8;
 }
 
 /* Style the container */
@@ -12,6 +12,13 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
+}
+
+.image-container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Style the header */
@@ -97,10 +104,10 @@ h1 {
 
 /* Style the content section */
 .content {
-  background-color: #fff;
+  background-color: #a3a4c8;
   padding: 2rem;
   border-radius: 5px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.25);
   margin-top: 2rem;
 }
 
@@ -184,4 +191,279 @@ form {
 .artist-list button {
   margin: 10px;
   padding: 10px 20px;
+}
+
+.album-image {
+  width: fit-content;
+  /* height: fit-content; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  margin-bottom: 10px;
+}
+
+.album-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.album-image img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.album-details {
+  padding: 10px;
+  border: none;
+  text-align: center;
+}
+
+.album-title {
+  margin-bottom: 5px;
+}
+
+.album-year {
+  font-size: 14px;
+  color: #999;
+}
+
+.album-title {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.album-artist {
+  font-size: 18px;
+  color: #888;
+  margin-bottom: 20px;
+}
+
+.album-image {
+  margin-right: 20px;
+}
+
+.album-image img {
+  max-width: 300px;
+  max-height: 300px;
+  border-radius: 5px;
+}
+
+.album-info {
+  text-align: left;
+}
+
+.album-year {
+  font-size: 16px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.track-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.track-items {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.track-item {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.track-number {
+  margin-right: 10px;
+  width: 25px;
+  font-weight: bold;
+  color: #888;
+}
+
+.track-title {
+  flex-grow: 1;
+}
+
+.album-title {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.album-artist {
+  font-size: 18px;
+  color: #888;
+  margin-bottom: 20px;
+}
+
+.album-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  transition: all 0.3s;
+  overflow: hidden;
+}
+
+.album-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.album-image {
+  margin-right: 20px;
+}
+
+.album-image img {
+  max-width: 300px;
+  max-height: 300px;
+  border-radius: 5px;
+}
+
+.album-info {
+  text-align: left;
+}
+
+.album-year {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.track-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.track-items {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.track-item {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.track-number {
+  margin-right: 10px;
+  width: 30px;
+  font-weight: bold;
+  color: #888;
+  text-align: right;
+  vertical-align: top;
+}
+
+.track-details {
+  flex-grow: 1;
+}
+
+.track-title {
+  margin-top: -3px;
+}
+
+.list-group {
+  padding-top: 20px;
+}
+
+.list-group-item {
+  width: calc(50% - 20px);
+  margin: 10px;
+  box-sizing: border-box;
+  border: none;
+  background-color: #a3a4c8;
+}
+
+.album-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 767px) {
+  .list-group-item {
+    width: 100%;
+  }
+}
+
+.fancy-form {
+  text-align: center;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  color: #333;
+}
+
+.fancy-input {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  transition: box-shadow 0.3s;
+}
+
+.fancy-input:focus {
+  outline: none;
+  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+}
+
+.fancy-input::placeholder {
+  color: #888;
+}
+
+.year-message {
+  font-size: 14px;
+  color: #888;
+  margin-top: 5px;
+}
+
+.fancy-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 18px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.fancy-button:hover {
+  background-color: #0056b3;
+}
+
+.fancy-message {
+  font-weight: bold;
+  color: #007bff;
+  margin-top: 20px;
 }
