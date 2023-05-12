@@ -13,11 +13,15 @@
 
 .movie-box {
   width: 300px;
+  height: 400px;
   padding: 20px;
   background-color: #f5f5f5;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .movie-box:hover {
@@ -25,35 +29,21 @@
 }
 
 .movie-image {
-  text-align: center;
+  height: 400px; /* Adjust the height as needed */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 }
 
 .movie-image img {
   width: 100%;
-  height: auto;
-  border-radius: 4px;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
 }
 
-.movie-details {
-  margin-top: 10px;
-}
-
-.movie-title {
-  font-size: 18px;
-  font-weight: bold;
-}
-
-.movie-director {
-  font-size: 14px;
-}
-
-.movie-genre {
-  font-size: 14px;
-  color: #888;
-  margin-bottom: 3px;
-}
-
-.movie-release-year {
-  font-size: 14px;
-  color: #888;
+.movie-box:hover .movie-image img {
+  transform: scale(1.05);
 }

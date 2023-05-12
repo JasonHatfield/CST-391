@@ -2,13 +2,10 @@
 
 <div class="movie-container">
   <div *ngFor="let movie of movies" class="movie-box">
-    <div class="movie-image">
-      <img [src]="movie.artworkUrl" alt="Movie Poster" />
-    </div>
-    <div class="movie-details">
-      <h3 class="movie-title">{{ movie.title }}</h3>
-      <p class="movie-director">Director: {{ movie.director }}</p>
-      <p class="movie-release-year">Release Year: {{ movie.releaseYear }}</p>
-    </div>
+    <a [routerLink]="['/movie', movie.id]" class="movie-button">
+      <div class="movie-image">
+        <img [src]="movie.posterUrl" alt="Movie Poster" />
+      </div>
+    </a>
   </div>
 </div>
