@@ -1,7 +1,5 @@
-<h2 class="page-title"></h2>
-
 <div class="form-container">
-  <form (ngSubmit)="addMovie()">
+  <form (ngSubmit)="addMovie()" #movieForm="ngForm">
     <div class="form-group">
       <label for="title">Title</label>
       <input
@@ -10,8 +8,9 @@
         name="title"
         class="form-control"
         [(ngModel)]="newMovie.title"
-        (input)="validateForm()"
+        #titleField="ngModel"
         required
+        [matTooltip]="titleField.invalid && movieForm.submitted ? 'Title is required.' : ''"
       />
     </div>
 
@@ -23,8 +22,9 @@
         name="director"
         class="form-control"
         [(ngModel)]="newMovie.director"
-        (input)="validateForm()"
+        #directorField="ngModel"
         required
+        [matTooltip]="directorField.invalid && movieForm.submitted ? 'Director is required.' : ''"
       />
     </div>
 
@@ -36,8 +36,9 @@
         name="releaseYear"
         class="form-control"
         [(ngModel)]="newMovie.releaseYear"
-        (input)="validateForm()"
+        #releaseYearField="ngModel"
         required
+        [matTooltip]="releaseYearField.invalid && movieForm.submitted ? 'Release Year is required.' : ''"
       />
     </div>
 
@@ -48,8 +49,9 @@
         name="description"
         class="form-control"
         [(ngModel)]="newMovie.description"
-        (input)="validateForm()"
+        #descriptionField="ngModel"
         required
+        [matTooltip]="descriptionField.invalid && movieForm.submitted ? 'Description is required.' : ''"
       ></textarea>
     </div>
 
@@ -61,8 +63,9 @@
         name="posterUrl"
         class="form-control"
         [(ngModel)]="newMovie.posterUrl"
-        (input)="validateForm()"
+        #posterUrlField="ngModel"
         required
+        [matTooltip]="posterUrlField.invalid && movieForm.submitted ? 'Poster URL is required.' : ''"
       />
     </div>
 
@@ -74,12 +77,13 @@
         name="genre"
         class="form-control"
         [(ngModel)]="newMovie.genre"
-        (input)="validateForm()"
+        #genreField="ngModel"
         required
+        [matTooltip]="genreField.invalid && movieForm.submitted ? 'Genre is required.' : ''"
       />
     </div>
 
-    <button type="submit" class="btn" [disabled]="!isFormValid">
+    <button type="submit" class="btn" [disabled]="!movieForm.valid">
       Add Movie
     </button>
   </form>

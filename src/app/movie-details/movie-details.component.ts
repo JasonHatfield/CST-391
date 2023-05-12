@@ -10,6 +10,8 @@ import { MovieService } from '../../services/movie.service';
 })
 export class MovieDetailsComponent implements OnInit {
   movie: Movie | undefined;
+  editMode: boolean = false;
+  showPopup: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -22,16 +24,22 @@ export class MovieDetailsComponent implements OnInit {
     this.movie = this.movieService.getMovieById(id);
   }
 
-  addMovie(): void {
-    // Redirect to add-movie route
-    this.router.navigate(['/add-movie']);
+  editMovie(): void {
+    this.editMode = !this.editMode;
   }
 
-  deleteMovie(): void {
+  deleteMovie() {
+    this.showPopup = true;
+  }
+
+  confirmDeleteMovie() {
     if (this.movie) {
       this.movieService.deleteMovie(this.movie.id);
-      // Redirect to home route after deleting the movie
       this.router.navigate(['/']);
     }
+  }
+
+  cancelDeleteMovie() {
+    this.showPopup = false;
   }
 }
