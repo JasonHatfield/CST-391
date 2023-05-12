@@ -1,6 +1,21 @@
-<h2>Movie Details</h2>
-<div *ngIf="movie">
-  <p><strong>Title:</strong> {{ movie.title }}</p>
-  <p><strong>Director:</strong> {{ movie.director }}</p>
-  <p><strong>Year:</strong> {{ movie.year }}</p>
+<h2></h2>
+
+<div *ngIf="movie" class="movie-details-container">
+  <div class="movie-box">
+    <div class="movie-image">
+      <img *ngIf="movie.posterUrl" [src]="movie.posterUrl" alt="Movie Poster" />
+    </div>
+    <div class="movie-details">
+      <h3 class="movie-title" *ngIf="movie.title">{{ movie.title }}</h3>
+      <p *ngIf="movie.director">
+        <strong>Director:</strong> {{ movie.director }}
+      </p>
+      <p *ngIf="movie.releaseYear">
+        <strong>Year:</strong> {{ movie.releaseYear }}
+      </p>
+      <p *ngIf="movie.description">
+        <strong>Description:</strong> {{ movie.description }}
+      </p>
+    </div>
+  </div>
 </div>
