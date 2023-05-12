@@ -6,19 +6,23 @@ import { Track } from '../models/Track';
 
 @Injectable({ providedIn: 'root' })
 export class MusicServiceService {
-  hostname: string = 'http://localhost:3000';
+  hostname: string = 'http://localhost:5000';
 
   constructor(private http: HttpClient) {}
 
-  public getArtists(callback: any) {
-    // Call the Get Artists API using a HTTP GET
-    this.http.get<Artist[]>(this.hostname + '/artists').subscribe((data) => {
-      let artists: Artist[] = [];
-      for (let x = 0; x < data.length; ++x) {
-        artists.push(new Artist(data[x]['id'], data[x]['name']));
+  public getArtists(
+    callback: (artists: Artist[]) => void,
+    errorCallback: (error: any) => void
+  ): void {
+    this.http.get<Artist[]>(this.hostname + '/artists').subscribe(
+      (artists: Artist[]) => {
+        console.log('Artists fetched:', artists); // Add this line
+        callback(artists);
+      },
+      (error) => {
+        errorCallback(error);
       }
-      callback(artists);
-    });
+    );
   }
 
   public getAlbums(artist: string, callback: any) {

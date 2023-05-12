@@ -1,13 +1,16 @@
+<div *ngIf="loadingMsg">{{ loadingMsg }}</div>
+
 <div class="artist-list" *ngIf="selectedArtist == null">
   <button
     class="submit-button"
     *ngFor="let artist of artists"
-    (click)="onSelectArtist(artist)"
+    (click)="onSelectArtist(artist.artist)"
   >
-    {{ artist.Name }}
+    {{ artist.artist }}
   </button>
 </div>
 
-<div *ngIf="selectedArtist">
-  <app-list-albums [artist]="selectedArtist"></app-list-albums>
-</div>
+<app-list-albums
+  *ngIf="selectedArtist"
+  [artist]="selectedArtist"
+></app-list-albums>

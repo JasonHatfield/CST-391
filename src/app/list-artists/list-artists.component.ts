@@ -19,18 +19,23 @@ export class ListArtistsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.route.queryParams.subscribe((params) => {
-      console.log('Getting data....');
-      this.service.getArtists((artists: Artist[]) => {
+    console.log('Getting data....');
+    this.service.getArtists(
+      (artists: Artist[]) => {
         this.artists = artists;
-        this.selectedArtist = null;
         this.loadingMsg = null;
-      });
-    });
+        console.log('this.artists', this.artists);
+      },
+      (error) => {
+        console.error('Error fetching artists:', error);
+        this.loadingMsg =
+          'Error loading artists. Please check the console for more details.';
+      }
+    );
   }
 
-  public onSelectArtist(artist: Artist) {
-    console.log('Selected Artist: ' + artist.Name);
-    this.selectedArtist = artist;
+  public onSelectArtist(artistName: string) {
+    console.log('Selected Artist: ' + artistName);
+    this.selectedArtist = new Artist(-1, artistName);
   }
 }
