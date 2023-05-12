@@ -1,30 +1,33 @@
 import { Component, OnInit, Input } from '@angular/core';
-
-import { MusicServiceService } from '../service/music-service.service';
-
-import { Album } from '../models/Album';
+import { MusicServiceService} from '../service/music-service.service';
 import { Artist } from '../models/Artist';
+import { Album } from '../models/Album';
 
 @Component({
   selector: 'app-list-albums',
   templateUrl: './list-albums.component.html',
-  styleUrls: ['./list-albums.component.css'],
+  styleUrls: ['./list-albums.component.css']
 })
-export class ListAlbumsComponent implements OnInit {
-  @Input() artist: Artist | null = null;
-  albums: Album[] = [];
-  selectedAlbum: Album | null = null;
+export class ListAlbumsComponent implements OnInit
+{
+  @Input() artist: Artist;
+  albums:Album[] = [];
+  selectedAlbum: Album = null;
 
-  constructor(private service: MusicServiceService) {}
+  constructor(private service: MusicServiceService) { }
 
-  ngOnInit() {
-    if (this.artist) {
-      this.albums = this.service.getAlbums(this.artist.Name);
-    }
+  ngOnInit()
+  {
+    this.service.getAlbums( this.artist.Name, (albums:Album[]) =>
+    {
+        this.albums = albums;
+    });
+
   }
 
-  public onSelectAlbum(album: Album) {
-    console.log('Selected Album of ' + album.Title);
+  public onSelectAlbum(album: Album)
+  {
+    console.log("Selected Album of " + album.Title);
     this.selectedAlbum = album;
   }
 }

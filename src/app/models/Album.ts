@@ -62,10 +62,10 @@ export class Album {
     this.year = year;
   }
 
-  public get Image(): string {
+  get Image(): string {
     return this.image;
   }
-  public set Image(value: string) {
+  set Image(value: string) {
     this.image = value;
   }
 

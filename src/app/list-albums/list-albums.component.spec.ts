@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ListAlbumsComponent } from './list-albums.component';
 
@@ -6,10 +6,14 @@ describe('ListAlbumsComponent', () => {
   let component: ListAlbumsComponent;
   let fixture: ComponentFixture<ListAlbumsComponent>;
 
-  beforeEach(() => {
+  beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ListAlbumsComponent]
-    });
+      declarations: [ ListAlbumsComponent ]
+    })
+    .compileComponents();
+  }));
+
+  beforeEach(() => {
     fixture = TestBed.createComponent(ListAlbumsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DeleteAlbumComponent } from './delete-album.component';
 
@@ -6,10 +6,14 @@ describe('DeleteAlbumComponent', () => {
   let component: DeleteAlbumComponent;
   let fixture: ComponentFixture<DeleteAlbumComponent>;
 
-  beforeEach(() => {
+  beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [DeleteAlbumComponent]
-    });
+      declarations: [ DeleteAlbumComponent ]
+    })
+    .compileComponents();
+  }));
+
+  beforeEach(() => {
     fixture = TestBed.createComponent(DeleteAlbumComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

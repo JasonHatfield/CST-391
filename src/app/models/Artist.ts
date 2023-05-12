@@ -17,7 +17,7 @@ export class Artist {
   get Name(): string {
     return this.name;
   }
-  set Name(name: string) {
-    this.name = name;
+  set Name(artist: string) {
+    this.name = artist;
   }
 }

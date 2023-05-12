@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Artist } from '../models/Artist';
 import { ActivatedRoute } from '@angular/router';
 import { MusicServiceService } from '../service/music-service.service';
-
-import { Artist } from '../models/Artist';
 
 @Component({
   selector: 'app-list-artists',
@@ -12,6 +11,7 @@ import { Artist } from '../models/Artist';
 export class ListArtistsComponent implements OnInit {
   artists: Artist[] = [];
   selectedArtist: Artist | null = null;
+  loadingMsg: string | null = 'Please wait… loading';
 
   constructor(
     private route: ActivatedRoute,
@@ -20,14 +20,17 @@ export class ListArtistsComponent implements OnInit {
 
   ngOnInit() {
     this.route.queryParams.subscribe((params) => {
-      console.log('Getting data...');
-      this.artists = this.service.getArtists();
-      this.selectedArtist = null;
+      console.log('Getting data....');
+      this.service.getArtists((artists: Artist[]) => {
+        this.artists = artists;
+        this.selectedArtist = null;
+        this.loadingMsg = null;
+      });
     });
   }
 
   public onSelectArtist(artist: Artist) {
-    console.log('Selected Artist of ' + artist.Name);
+    console.log('Selected Artist: ' + artist.Name);
     this.selectedArtist = artist;
   }
 }

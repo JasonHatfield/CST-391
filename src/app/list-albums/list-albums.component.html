@@ -5,7 +5,7 @@
     *ngFor="let album of albums"
     (click)="onSelectAlbum(album)"
   >
-    <table align="center">
+    <table align="center" width="500px">
       <tr>
         <td width="20%">
           <img
@@ -14,7 +14,7 @@
             height="50px"
           />
         </td>
-        <td>{{ album.Title }} from {{ album.Year }}</td>
+        <td align="left">{{ album.Title }} from {{ album.Year }}</td>
       </tr>
     </table>
   </button>
