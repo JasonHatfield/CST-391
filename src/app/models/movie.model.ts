@@ -1,32 +1,20 @@
 export class Movie {
-  private _id: number;
-  private _title: string;
-  private _director: string;
-  private _releaseYear: number;
-  private _description: string;
-  private _posterUrl: string;
-  private _genre: string;
-
   constructor(
-    id: number,
-    title: string,
-    director: string,
-    releaseYear: number,
-    description: string,
-    posterUrl: string,
-    genre: string
-  ) {
-    this._id = id;
-    this._title = title;
-    this._director = director;
-    this._releaseYear = releaseYear;
-    this._description = description;
-    this._posterUrl = posterUrl;
-    this._genre = genre;
-  }
+    private _id: number = 0,
+    private _title: string = '',
+    private _director: string = '',
+    private _releaseYear: number = 0,
+    private _description: string = '',
+    private _posterUrl: string = '',
+    private _genre: string = ''
+  ) {}
 
   get id(): number {
     return this._id;
+  }
+
+  set id(value: number) {
+    this._id = value;
   }
 
   get title(): string {

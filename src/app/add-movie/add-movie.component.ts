@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Movie } from '../models/movie.model';
+import { MovieService } from '../../services/movie.service';
 
 @Component({
   selector: 'app-add-movie',
@@ -6,9 +8,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./add-movie.component.css'],
 })
 export class AddMovieComponent {
-  newMovie: any;
+  newMovie: Movie = new Movie();
+
+  constructor(private movieService: MovieService) {}
 
   addMovie() {
-    // Add your logic to add a new movie
+    const newMovieId = this.generateUniqueId();
+    this.newMovie.id = newMovieId;
+    this.movieService.addMovie(this.newMovie);
+    this.newMovie = new Movie();
+  }
+
+  private generateUniqueId(): number {
+    const highestId = Math.max(
+      ...this.movieService.getMovies().map((movie) => movie.id)
+    );
+    return highestId + 1;
   }
 }
