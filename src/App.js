@@ -1,33 +1,56 @@
-import React from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
+import React, { useState } from "react";
 import Card from "./Card";
+import "./App.css";
 
 const App = () => {
-  return (
-    <div>
-      <h1>Music I like</h1>
-      <Card
-        albumTitle="Abbey Road"
-        albumDescription="Abbey Road is the eleventh studio album by English rock band the Beatles, released on 26 September 1969 by Apple Records. The recording sessions for the album were the last in which all four Beatles participated."
-        imageURL="https://upload.wikimedia.org/wikipedia/en/4/42/Beatles_-_Abbey_Road.jpg"
-        buttonText="OK"
-      />
+  const [albumList, setAlbumList] = useState([
+    {
+      artistId: 0,
+      artist: "The Beatles",
+      title: "Yellow Submarine",
+      description:
+        "Yellow Submarine is the tenth studio album by English rock band the Beatles, released on 13 January 1969 in the United States and on 17 January 1969 in the United Kingdom.",
+      year: 1969,
+      image:
+        "https://upload.wikimedia.org/wikipedia/en/thumb/a/ac/TheBeatles-YellowSubmarinealbumcover.jpg/220px-TheBeatles-YellowSubmarinealbumcover.jpg",
+    },
+    {
+      artistId: 1,
+      artist: "The Beatles",
+      title: "Abbey Road",
+      description:
+        "Yellow Submarine is the tenth studio album by English rock band the Beatles, released on 13 January 1969 in the United States and on 17 January 1969 in the United Kingdom.",
+      year: 1969,
+      image:
+        "https://upload.wikimedia.org/wikipedia/en/thumb/4/42/Beatles_-_Abbey_Road.jpg/220px-Beatles_-_Abbey_Road.jpg",
+    },
+    {
+      artistId: 2,
+      artist: "The Beatles",
+      title: "Let It Be",
+      description:
+        "Let It Be is the twelfth and final studio album by the English rock band the Beatles. It was released on 8 May 1970, almost a month after the group's break-up.",
+      year: 1970,
+      image:
+        "https://upload.wikimedia.org/wikipedia/en/thumb/2/25/LetItBe.jpg/220px-LetItBe.jpg",
+    },
+  ]);
 
-      <Card
-        albumTitle="Master of Puppets"
-        albumDescription="Master of Puppets is the third studio album by American heavy metal band Metallica, released on March 3, 1986, by Elektra Records. It was the band's last album to feature bassist Cliff Burton, who died in a bus accident during the album's promotional tour."
-        imageURL="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fimg.europapress.es%2Ffotoweb%2Ffotonoticia_20160305095544_1280.jpg&f=1&nofb=1&ipt=f6346238eb168e62b9ebc6bff4d0bc096545b81f8a58b1364ee1c561949e70fb&ipo=images"
-        buttonText="Listen Now"
-      />
+  const renderedList = () => {
+    return albumList.map((album) => {
+      return (
+        <Card
+          key={album.artistId}
+          albumTitle={album.title}
+          albumDescription={album.description}
+          buttonText="OK"
+          imgURL={album.image}
+        />
+      );
+    });
+  };
 
-      <Card
-        albumTitle="Appetite for Destruction"
-        albumDescription="Appetite for Destruction is the debut studio album by American hard rock band Guns N' Roses, released on July 21, 1987, by Geffen Records. The album features a raw and gritty sound, combining elements of hard rock, punk, and heavy metal."
-        imageURL="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages-na.ssl-images-amazon.com%2Fimages%2FI%2F71H9ZR6EGFL._AC_SL1400_.jpg&f=1&nofb=1&ipt=7486af2f0a034617bcecdd1829ae0383f24c2976fbdc9ef46fd0a1bcb918e50e&ipo=images"
-        buttonText="Play Album"
-      />
-    </div>
-  );
+  return <div className="container">{renderedList()}</div>;
 };
 
 export default App;
