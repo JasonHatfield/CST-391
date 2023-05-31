@@ -1,0 +1,43 @@
+<div *ngIf="movie" class="movie-details-container">
+  <div class="movie-box">
+    <div class="movie-image">
+      <img *ngIf="movie.posterUrl" [src]="movie.posterUrl" alt="Movie Poster" />
+    </div>
+    <div class="movie-details">
+      <h3 *ngIf="!editMode && movie.title" class="movie-title">
+        {{ movie.title }}
+      </h3>
+      <input *ngIf="editMode" type="text" [(ngModel)]="movie.title" />
+
+      <p *ngIf="!editMode && movie.director">
+        <strong>Director:</strong> {{ movie.director }}
+      </p>
+      <input *ngIf="editMode" type="text" [(ngModel)]="movie.director" />
+
+      <p *ngIf="!editMode && movie.releaseYear">
+        <strong>Year:</strong> {{ movie.releaseYear }}
+      </p>
+      <input *ngIf="editMode" type="number" [(ngModel)]="movie.releaseYear" />
+
+      <p *ngIf="!editMode && movie.description">
+        <strong>Description:</strong> {{ movie.description }}
+      </p>
+      <textarea *ngIf="editMode" [(ngModel)]="movie.description"></textarea>
+    </div>
+    <div class="movie-actions">
+      <button class="btn" (click)="editMovie()">
+        {{ editMode ? "Save" : "Edit Movie" }}
+      </button>
+      <button class="btn" (click)="deleteMovie()">Delete Movie</button>
+    </div>
+  </div>
+  <div *ngIf="showPopup" class="overlay">
+    <div class="popup">
+      <h3 class="popup-title">Are you sure you want to delete this movie?</h3>
+      <div class="popup-actions">
+        <button class="btn" (click)="confirmDeleteMovie()">Yes</button>
+        <button class="btn" (click)="cancelDeleteMovie()">No</button>
+      </div>
+    </div>
+  </div>
+</div>

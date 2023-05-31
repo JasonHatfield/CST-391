@@ -1,0 +1,74 @@
+.page-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center; /* Add this line to center the page title */
+}
+
+.form-container {
+  width: 400px;
+  margin: 0 auto;
+  margin-top: 20px;
+  background-color: #f5f5f5;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+  box-sizing: border-box; /* Add this line */
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px; /* Add this line to add some space between the label and the input field */
+}
+
+.form-control {
+  width: 95%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+textarea.form-control {
+  height: 100px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #8b5cc9;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.btn:hover {
+  background-color: #6e44b5;
+}
+
+.btn:active {
+  background-color: #5c3c9e;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.has-error .form-control {
+  border-color: #f44336;
+}
+
+.error-msg {
+  color: #f44336;
+  font-size: 12px;
+  margin-top: 3px;
+}
+
